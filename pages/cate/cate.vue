@@ -8,14 +8,14 @@
 				</block>
 			</scroll-view>
 			<!-- 右侧的滑动区 -->
-			<scroll-view class="right-scroll-view" scroll-y="true" :style="{height: wh + 'px'}">
+			<scroll-view class="right-scroll-view" scroll-y="true" :style="{height: wh + 'px'}" :scroll-top="scrollTop">
 				<view class="cate-lv2" v-for="(item2, i2) in cateList2" :key="i2">
 					<!-- 二级分类的标题 -->
 					<view class="cate-lv2-title"> /{{item2.cat_name}}/</view>
 					<!-- 动态渲染三级分类的列表数据 -->
 					<view class="cate-lv3-list">
 						<!-- 三级分类的item项 -->
-						<view class="cate-lv3-item" v-for="(item3,i3) in item2.children" :key="i3">
+						<view class="cate-lv3-item" v-for="(item3,i3) in item2.children" :key="i3" @click="gotoGoodsList(item3)">
 							<!-- 三级分类的图片  <image :src="item3.cat_icon"></image>  -->
 							<image src="/static/tab_icons/tiger.png" mode="widthFix"/>
 							<!-- 三级分类的文字 -->
@@ -37,7 +37,8 @@
 				cateList: [],
 				active: 0,
 				//二级分类列表
-				cateList2: []
+				cateList2: [],
+				scrollTop: 0
 			};
 		},
 		
@@ -68,6 +69,14 @@
 				this.active = i
 				//重新为二级分类赋值
 				this.cateList2 = this.cateList[i].children
+				
+				this.scrollTop = 0
+			},
+			//跳转到商品列表页面
+			gotoGoodsList(item){
+				uni.navigateTo({
+					url: '/subpkg/goods_list/goods_list?cid=' + item.cat_id
+				})
 			}
 		}
 	}
