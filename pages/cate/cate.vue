@@ -1,7 +1,10 @@
 <template>
 	<view>
+		<!-- 使用自定义的搜索组件 -->
+		<my-search></my-search>
 		<view class="scroll-view-container">
 			<!-- 左侧的滑动区 -->
+			
 			<scroll-view class="left-scroll-view" scroll-y="true" :style="{height: wh + 'px'}">
 				<block v-for="(item, i) in cateList" :key = "i">
 					<view :class="['left-scroll-view-item', i === active ? 'active':'']" @click="activeChanged(i)">{{item.cat_name}}</view>
