@@ -48,7 +48,10 @@
 				"style" : 
 				{
 					"navigationBarTitleText" : "",
-					"enablePullDownRefresh" : false
+					"enablePullDownRefresh" : true,
+					//滚动条距离底部150px触发刷新
+					"onReachBottomDistance": 150,
+					"backgroundColor": "#f8f8f8"
 				}
 			},
 			{
