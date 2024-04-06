@@ -6,6 +6,11 @@ export default{
 	onShow(){
 		this.setBadge()
 	},
+	watch: {
+		total(){
+			this.setBadge()
+		}
+	},
 	methods: {
 		setBadge() {
 		    // 调用 uni.setTabBarBadge() 方法，为购物车设置右上角的徽标

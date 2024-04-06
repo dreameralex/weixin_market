@@ -40,33 +40,24 @@
 
 <script>
 	import { mapState, mapMutations, mapGetters  } from 'vuex'
-	
+	import { computed } from "vue"
 	export default {
-		computed: {
+		/* computed: {
 			// 调用 mapState 方法，把 m_cart 模块中的 cart 数组映射到当前页面中，作为计算属性来使用
 			// ...mapState('模块的名称', ['要映射的数据名称1', '要映射的数据名称2'])
 			...mapState('m_cart', []),
 			...mapGetters('m_cart', ['total'])
 		},
 		watch:{
-			// 定义 total 侦听器，指向一个配置对象
-			
-/* 			total(newVal){
-				const findResult = this.options.find((x) => x.text === '购物车')
-				if(findResult){
-					findResult.info = newVal
-				}
-			} */
 			
 			total:{
 				// handler 属性用来定义侦听器的 function 处理函数
 				handler(newVal) {
-				         const findResult = this.options.find(x => x.text === '购物车')
-				         if (findResult) {
-				            findResult.info = newVal
-				         }
+				    const findResult = this.options.find(x => x.text === '购物车')
+				    if (findResult) {
+				        findResult.info = newVal
+				    }
 				},
-				
 				// immediate 属性用来声明此侦听器，是否在页面初次加载完毕后立即调用
 				immediate: true
 			}
@@ -74,7 +65,7 @@
 			
 			
 			
-		},
+		}, */
 		
 		data() {
 			return {
